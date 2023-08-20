@@ -1,0 +1,394 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        font-family: inherit;
+        vertical-align: baseline;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #11111;
+        color: #333;
+    }
+    
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: #fff;
+        background: linear-gradient(to bottom, #007BFF, #0055FF);
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+    }
+
+    .header-logo {
+        max-width: 50px;
+        margin-right: 10px;
+    }
+
+    .header-title {
+        font-size: 32px;
+        letter-spacing: 1px;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .menu-item {
+        display: inline-block;
+        margin-right: 25px;
+    }
+
+    .menu-item a,
+.learn-more-button {
+    text-decoration: none;
+}
+
+    .menu-item a {
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .menu-item a:hover {
+        color: #ffc107;
+        transform: translateY(-3px);    }
+
+   
+    
+    .menu-item a.active {
+        color: #ffc107;
+        font-weight: bold;
+    }
+    
+
+    .submenu {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 10px;
+        z-index: 1;
+        text-align: center; /* Center the content horizontally */
+        background-color: #f0f0f0; /* Change the background color to gray */
+
+    }
+    
+    .menu-item:hover .submenu {
+        display: block;
+    }
+    
+    .submenu a {
+        display: block;
+        padding: 5px 0;
+        color: #333;
+        transition: color 0.3s;
+        text-decoration: none;
+    }
+    
+    .submenu a:hover {
+        color: #007BFF;
+        transform: translateY(-3px);
+
+    }
+    
+    .footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+      }
+      
+      .footer-links a {
+        color: #fff;
+        margin: 0 10px;
+        text-decoration: none;
+      }
+      
+      .footer-project-name {
+        font-size: 18px;
+        margin-top: 10px;
+
+}
+
+
+.title-container {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.title {
+    font-size: 40px;
+    letter-spacing: 1px;
+    margin: 0;
+    color: #007BF11;
+    font-weight: bold;
+
+
+}
+
+.security-issue {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 900px;
+}
+
+.issue-image {
+    text-align: center;
+    padding: 30px;
+}
+
+.issue-image img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.issue-text {
+    padding: 30px;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+
+.learn-more-button {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.learn-more-button:hover {
+    background-color: #0055FF;
+}
+
+.code-block {
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px 0;
+    white-space: pre-wrap;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+</style>
+
+<div class="security-issue">
+
+<div class="title-container">
+    <h1 class="title">Authentication </h1>
+</div>
+
+        <div class="issue-image">
+        <img src="/media/auth1.png" alt="Authentication">
+        <p>Picture 4: picture from SecureCoding   </p>
+    </div>
+
+<div class="security-issue">
+    <div class="issue-text">
+        <h3>Introduction</h3>
+        <p>Login vulnerabilities might seem easy to get, but they can be the most dangerous.</p>
+            <p> Why? Because logging in is the front door to a website's secrets. 
+            If someone sneaky gets past that door, they can cause a lot of mischief.
+             That's why it's essential to know how logins can be tricked and how to make them strong.</p><br>
+     
+        <h4>What's a Login Anyway?</h4><br>
+        <p>When you log into a site, it's like showing an ID to prove who you are. 
+            The website checks if you're the real deal and then lets you in. This checking process is called "authentication". 
+            Since websites are open for everyone to visit, 
+            they need a strong bouncer at the door, aka a solid login system.</p><br>
+       
+       
+        <h4>Types of 'IDs' or Authentication:</h4>
+        <p><strong>Something you know:</strong> Like a password or a secret answer. Think of it as a secret handshake.</p>
+            <p><strong> Something you have:</strong> Like a special keycard or a code sent to your phone. Imagine it as a VIP pass.</p>
+                <p><strong> Something you are:</strong> Like your fingerprint or voice. It's like recognizing you by your face or voice.</p>
+                    <p><strong>Login vs. VIP Passes: </strong></p><br>       
+                        <p><strong>Login (Authentication):</strong> Proves you are who you say you are.</p>
+                            <p><strong>VIP Passes (Authorization):</strong> Determines what you can and can't do once you're inside. 
+                                For instance, just because you're in a concert doesn't mean you can go backstage, right?</p>
+          <p>  How Can Logins Be Tricked?</p><br>
+
+
+            
+       
+          <p><strong>Weak Passwords: If passwords are easy, they can be guessed.</strong></p></p><br>
+          <p><strong>Sloppy Code:</strong> Sometimes, the way a website is built allows sneaky people to skip the login.</p>
+            <p><strong>Broken Logins:</strong> A website might have a broken door lock, letting people sneak in without the right key.</p><br>
+
+            <p><strong>Why Worry About Login Tricks?</strong></p>
+            <p>If a  bad actor logs in as someone else, they can see and do everything that person can.
+                 If they pretend to be the boss of a website, they might control everything.
+                  Even if they're just pretending to be a regular person, they might find more doors to sneak through inside.</p><br>
+
+                  <h4>Examples</h4><br>
+
+                  <p><strong>1. Guessing the Password:</strong></p><br>
+                  
+                    <p><strong>Scenario:</strong> </p>
+                    <p> Imagine you have a diary with a tiny lock. Your friend tries to open it by guessing the lock's code.</p><br>
+                  
+                        <p> In Tech Terms: This is like a hacker trying to get into an account by guessing the password. 
+                            If it's something simple like "password123", they might get in!</p><br>
+                  
+                  <p><strong>2. Peeking Over the Shoulder:</strong></p><br>
+                  
+                    <p><strong>Scenario:</strong> 
+                        <p>You're entering the door code at school, and someone's standing too close, trying to see the numbers you press.</p><br>
+                  
+                 <p> In Tech Terms: This is called "shoulder surfing". Someone watches as you type in your password on a computer or phone.</p><br>
+                  
+                  <p><strong>3. Finding a Lost 'Key':</strong></p><br>
+                  
+                    <p><strong>Scenario:</strong> 
+                        <p>You drop your house key in the park, and someone else finds it and uses it to enter your house.</p><br>
+                  
+                            <p> In Tech Terms: This is like someone finding a USB stick (which acts as an authentication device) and using it 
+                                to access a computer or system.</p><br>
+                  
+                  <p><strong>4. Impersonating a Friend:</strong></p><br>
+                  
+                    <p><strong> Scenario:</strong>
+                        <p>   A stranger calls you, pretending to be your friend, and asks for the password to your shared game account.</p><br>
+                  
+                            <p> In Tech Terms: This is a form of "phishing". 
+                                Hackers pretend to be someone trustworthy to trick you into sharing passwords.</p><br>
+                  
+                  <p><strong> 5. Magic Bypass:</strong></p><br>
+                  
+                    <p><strong> Scenario:</strong>
+                        <p> Imagine a club with a secret knock to get in. One day, 
+                            someone finds out they can just clap and get in without knowing the secret knock.</p><br>
+                  
+                            <p>In Tech Terms: Due to a flaw in a website's code, 
+                                a hacker might bypass the login page altogether without needing a password.</p><br>
+                  
+                  <p><strong> 6. Copying the Keycard:</strong></p><br>
+                  
+                    <p><strong> Scenario:</strong> 
+                        <p>  At a hotel, someone secretly scans and copies your room's keycard while you're at breakfast.</p><br>
+                  
+                            <p>In Tech Terms: This is like "cloning". An attacker duplicates a security token or card to gain unauthorized access.</p><br>
+                  
+                  <p><strong>Quick Recap: </strong>Just like in real life, there are many ways sneaky folks can try to bypass or trick the ways 
+                    we prove who we are in the digital world. Always be cautious and protect your 'digital keys'!</p><br>
+                  
+
+
+
+<h4>Authentication Cheat Sheet for Students</h4><br>
+
+<p><strong>1. Strong Passwords:</strong></p><br>
+
+<p>What: Use a mix of letters (both uppercase and lowercase), numbers, and special symbols.</p>
+    <p>Why: It's like having a stronger lock on your diary. Harder for sneaky folks to guess!</p><br>
+
+<p><strong>2. Multi-Factor Authentication (MFA):</strong></p><br>
+
+<p>What: Use more than one way to prove it's you. Like a password PLUS a code sent to your phone.</p>
+    <p>Why: Two checks are better than one. It's like having a secret handshake AND a password.</p><br>
+
+<p><strong>3. Don't Reuse Passwords:</strong></p><br>
+
+<p>What: Keep a unique password for each site or app.</p>
+    <p>Why: If one site's password gets guessed or stolen, your other accounts remain safe.</p><br>
+
+<p><strong>4. Know About Phishing:</strong></p><br>
+
+<p>What: Be cautious of strange emails or messages asking for your password.</p>
+    <p>Why: Sneaky folks might pretend to be your friend or a trusted company to trick you.</p><br>
+
+<p><strong> 5. Logout When Done:</strong></p><br>
+
+<p>What: Always log out from sites, especially on shared or public computers.</p>
+    <p>Why: It's like closing and locking the door when you leave your house.</p><br>
+
+<p><strong> 6. Update Regularly:</strong></p><br>
+
+<p>What: Keep your software, apps, and devices updated.</p>
+    <p>Why: Updates often fix "broken locks" or weak spots that sneaky folks know about.</p><br>
+
+<p><strong> 7. Check for HTTPS:</strong></p><br>
+
+<p>What: When on a website, especially before logging in, check if the URL starts with "https://" and not just "http://".</p>
+    <p>Why: "HTTPS" is like a secret code between you and the website. Others can't easily listen in!</p><br>
+
+<p><strong> 8. Keep Secrets Secret:</strong></p><br>
+
+<p>What: Never share your password. Not with friends, not even if someone claims to be from "tech support".</p>
+    <p>Why: You wouldn't give your house key to a stranger, right?</p><br>
+
+<p><strong>9. Use Password Managers:</strong></p><br>
+
+<p>What: Consider using tools that remember your passwords for you.</p>
+    <p>Why: It's like having a secret vault for all your passwords. You just need to remember one super-strong password for the vault!</p><br>
+
+<p><strong>10. Stay Informed:</strong></p><br>
+
+<p>What: Pay attention to news about big websites being hacked. If you have an account there, change your password!</p>
+    <p>Why: It's like finding out a sneaky person has a copy of keys to many houses. Better to change your locks just in case!</p><br>
+        <p><strong>Quick Recap: Protecting your online "identity" is super important.
+             It's like making sure only you and trusted folks can enter your secret clubhouse.
+              Keep your passwords strong, unique, and secret, and always stay alert!</p><br>
+
+
+
+
+
+
+   
+
+
+<h4>References:</h4>
+        <ul class="reference-list">
+            <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html" target="_blank">https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html</a></li>
+            <li><a href="https://portswigger.net/web-security/authentication" target="_blank">https://portswigger.net/web-security/authentication</a></li>
+            <li><a href="https://www.securecoding.com/blog/secure-authentication/" target="_blank">https://www.securecoding.com/blog/secure-authentication/</a></li>
+
+        </ul>
+    </div>
+
+
+  
+
+
+    <a href="{% url 'lab_environment:all_labs' %}" class="learn-more-button">Go to Challenges</a>
+    </div>
+
+</div>
+
+
+
+{% endblock %}

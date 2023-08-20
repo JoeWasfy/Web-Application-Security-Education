@@ -1,0 +1,349 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        font-family: inherit;
+        vertical-align: baseline;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #11111;
+        color: #333;
+    }
+    
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: #fff;
+        background: linear-gradient(to bottom, #007BFF, #0055FF);
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+    }
+
+    .header-logo {
+        max-width: 50px;
+        margin-right: 10px;
+    }
+
+    .header-title {
+        font-size: 32px;
+        letter-spacing: 1px;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .menu-item {
+        display: inline-block;
+        margin-right: 25px;
+    }
+
+    .menu-item a,
+.learn-more-button {
+    text-decoration: none;
+}
+
+    .menu-item a {
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .menu-item a:hover {
+        color: #ffc107;
+        transform: translateY(-3px);    }
+
+   
+    
+    .menu-item a.active {
+        color: #ffc107;
+        font-weight: bold;
+    }
+    
+
+    .submenu {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 10px;
+        z-index: 1;
+        text-align: center; /* Center the content horizontally */
+        background-color: #f0f0f0; /* Change the background color to gray */
+
+
+    }
+    
+    .menu-item:hover .submenu {
+        display: block;
+    }
+    
+    .submenu a {
+        display: block;
+        padding: 5px 0;
+        color: #333;
+        transition: color 0.3s;
+        text-decoration: none;
+    }
+    
+    .submenu a:hover {
+        color: #007BFF;
+        transform: translateY(-3px);
+
+    }
+    
+    .footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+      }
+      
+      .footer-links a {
+        color: #fff;
+        margin: 0 10px;
+        text-decoration: none;
+      }
+      
+      .footer-project-name {
+        font-size: 18px;
+        margin-top: 10px;
+
+}
+
+
+.title-container {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.title {
+    font-size: 40px;
+    letter-spacing: 1px;
+    margin: 0;
+    color: #007BF11;
+    font-weight: bold;
+
+
+}
+
+.security-issue {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 1000px;
+}
+
+.issue-image {
+    text-align: center;
+    padding: 30px;
+}
+
+.issue-image img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.issue-text {
+    padding: 30px;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+
+.learn-more-button {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.learn-more-button:hover {
+    background-color: #0055FF;
+}
+
+.code-block {
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px 0;
+    white-space: pre-wrap;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+</style>
+
+<div class="security-issue">
+
+<div class="title-container">
+    <h1 class="title">Broken Access control  </h1>
+</div>
+
+        <div class="issue-image">
+        <img src="/media/sql 2.jpg" alt="SQL Injection">
+        <p>Picture 2 : picture from GeeksforGeeks      </p>
+    </div>
+
+<div class="security-issue">
+    <div class="issue-text">
+        <h3>Access Control & Going Beyond Your Limits    </h3>
+        <p>In this section, we're going to talk about keeping certain areas or information in a system off-limits and
+         what happens when someone tries to go beyond their allowed access.</p>
+     
+        <h4> What's Access Control? </h4>
+        <p>Imagine a library where only librarians can enter certain rooms.
+         Access control is like the library's rules about who can enter which room. </p> 
+       
+        <p><strong> -  Authentication:</strong> It's like checking your library card to make sure you're a member.</p>
+        <p><strong> -  Session Management:</strong> It's like putting a wristband on members to recognize them during their visit.</p?>
+        <p><strong> -  Access Control:</strong> Deciding which rooms you can enter based on your type of membership.</p>
+
+        <p>Mistakes in setting these rules can lead to major issues. 
+         It's crucial because deciding who can enter which room is a task done by humans, and sometimes they can make errors.</p>
+      
+       
+        <h4> Types of Access Control :</h4>
+        <p><strong> -  Vertical Access: </strong>Different levels, like a student vs. a librarian.</p>
+        <p><strong> -  Horizontal Access:</strong> Among the same level, like one student accessing another student's book.</p>
+        <p><strong>-  Context-Dependent:</strong> Based on a situation, like only librarians on duty can access a room.</p>
+        
+        <h3> Overview :</h3>
+       <p>A large number of applications (94% to be precise) have some issues with access control. 
+        Common problems include unauthorized access to sensitive information, data manipulation, and fake requests.</p>
+        
+        
+
+        <h3> What Can Go Wrong? </h3>
+
+       <p> - Someone gaining more access than they should.</p>
+        <p> - Jumping to a different page by changing its web address.</p>
+            <p> - Accessing someone else's data by guessing its code or ID.</p>
+                <p>- Using forbidden commands to change or delete data.</p>
+                    <p>- Getting admin rights without proper login.</p>
+                        <p>- Misusing web tokens or cookies to gain unauthorized access.</p>
+                            <p>- Accessing from untrusted places.</p>
+                                <p> - Visiting restricted pages without proper permission</p>
+        
+
+
+
+    
+   <h4>  How to Keep Things Safe? :</h4>
+
+   <p> - Always check accesses on the server side where attackers can't mess with them.</p>
+    <p> - Start by blocking everyone, then only allow specific people.</p>
+        <p> - Use one set of rules throughout your system.</p>
+            <p> - Ensure only the right person can access, change, or delete their own data.</p>
+                <p>- Keep private data and backups hidden.</p>
+                    <p>- Alert admins for suspicious activities.</p>
+                        <p> - Limit how often someone can try to access.</p>
+                            <p> - Log out properly and ensure tokens or passes expire quickly.</p>
+                                <p>- Test your system regularly for any loopholes.</p>
+                             
+   <h4>Examples of Sneaky Moves :</h4>
+
+  <p><strong>  1.  Changing the URL</strong>: If someone changes the web address 
+   from <strong>`https://example.com/info?account=myaccount` </strong>to <strong>`https://example.com/info?account=youraccount`, </strong>
+   they might sneak into your account!</p>
+                                
+   <p><strong> 2.  Guessing URLs</strong>: Sometimes, just trying different web addresses can get someone into restricted areas, 
+     like changing <strong>`https://example.com/info`</strong> to <strong>`https://example.com/admin_info`. </strong>
+    If they can access it without proper login, that's a problem!</p>  
+
+   <p> Remember, keeping a system safe is like locking doors in a building. Always double-check who has the keys!</p>
+   <p></p>
+
+   <p><strong>Examples of Sneaky Moves in Access Control:</strong></p><br>
+
+<p><strong>Using Someone Else's Badge:</strong></p>
+
+<p><strong>Real-world analogy:</strong> Imagine you found a librarian's badge and used it to enter the restricted section.</p>
+
+    <p><strong>Tech version:</strong> Someone finds a way to copy or mimic an authenticated user's session ID and uses it to access restricted areas
+         on a website.</p>
+        <p><strong>The Hidden Door Trick:</strong></p><br>
+
+        <p><strong>Real-world analogy:</strong> You discover a hidden door in a library that leads directly to the rare books section.</p>
+            <p><strong>Tech version:</strong> There's a backup or old version of a website that isn't properly protected. 
+                By simply knowing or guessing its URL, one might access sensitive data.</p><br>
+                <p><strong>The "I'm With the Band" Excuse:</strong></p>
+
+                <p><strong>Real-world analogy:</strong> Pretending to be with the band to get backstage access at a concert.</p>
+                    <p><strong>Tech version:</strong> Impersonating a service or application user by manipulating tokens or other authentication 
+                        methods to gain elevated access.</p><br>
+                        <p><strong>Switching Uniforms:</strong></p><br>
+
+<p><strong>Real-world analogy:</strong> Imagine wearing a janitor's uniform to access every room in a building.<br>
+    <p><strong>Tech version:</strong> Changing user roles or privileges after logging in, 
+        usually by manipulating cookies or parameters, to gain more access than intended.<br>
+<p><strong>The Over-friendly System:</strong></p><br>
+
+<p><strong>Real-world analogy:</strong> A club that lets in anyone who knows the name of a member.<br>
+    <p><strong>Tech version:</strong> A system that trusts input from any user without proper verification.
+     For instance, if a system trusts any filename and an attacker provides ../../../etc/passwd, they might retrieve system passwords.</p><br>
+<p><strong>Peeking through the Window:</strong></p><br>
+
+<P><strong>Real-world analogy:</strong> You can't enter a room, but you peek through the window to see what's inside.</p>
+    <P><strong>Tech version:</strong> Even if you can't access data directly, sometimes error messages or other system responses give away more information than they should, helping an attacker understand the system's structure.
+Always remember, in the world of cybersecurity, being aware of these sneaky moves helps in setting up better defenses.</p><br>
+
+
+
+
+
+
+
+
+<h4>References:</h4>
+        <ul class="reference-list">
+            <li><a href="https://owasp.org/Top10/A01_2021-Broken_Access_Control/" target="_blank">https://owasp.org/Top10/A01_2021-Broken_Access_Control/</a></li>
+            <li><a href="https://portswigger.net/web-security/access-control" target="_blank">https://portswigger.net/web-security/access-control</a></li>
+
+        </ul>
+    </div>
+
+
+  
+
+
+    <a href="{% url 'lab_environment:all_labs' %}" class="learn-more-button">Go to Challenges</a>
+    </div>
+
+</div>
+
+
+
+{% endblock %}

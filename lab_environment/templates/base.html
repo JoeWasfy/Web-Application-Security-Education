@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Education Prototype</title>
+    <!-- Include your CSS styles here -->
+</head>
+<body>
+  
+<header class="header">
+    <div class="header-left">
+        <h1 class="header-title">Security Education Prototype </h1>
+    </div>
+    <div class="header-right">
+        <ul class="menu">
+            <li class="menu-item"><a href="{% url 'lab_environment:home' %}">Home</a></li>
+            <li class="menu-item"><a href="#">Security Topics</a>
+                <div class="submenu">
+                    <a href="{% url 'lab_environment:sql_injection' %}">SQL Injection</a>
+                    <a href="{% url 'lab_environment:xss' %}">Cross-site scripting</a>
+                    <a href="{% url 'lab_environment:auth' %}">Authentication</a>
+                    <a href="{% url 'lab_environment:access_control' %}">Access control</a>
+                    <a href="{% url 'lab_environment:crypto' %}">Cryptographic Failures</a>
+                    <a href="{% url 'lab_environment:security' %}">Security Misconfiguration </a>
+                    <a href="{% url 'lab_environment:ssrf' %}">Server-Side Request Forgery</a>
+                    <a href="{% url 'lab_environment:xxe' %}">XML external entity</a>
+                    <a href="{% url 'lab_environment:failures' %}">Software Integrity Failures</a>
+                </div>
+            </li>
+            <li class="menu-item"><a href="#">Community Discussion</a></li>
+            <li class="menu-item"><a href="{% url 'lab_environment:all_labs' %}">Challenges</a></li>
+            {% if request.user.is_authenticated %}
+            <!-- If user is logged in -->
+            <li class="menu-item">
+                <a href="#">
+                    {% if request.user.user_type == 'student' %}
+                        Hello, {{ request.user.username }} ({{ request.user.points }} points)
+                    {% elif request.user.user_type == 'staff' %}
+                        Hello, {{ request.user.username }} (staff)
+                    {% endif %}
+                </a>
+                <div class="submenu">
+                    <a href="{% url 'lab_environment:my-account' %}">My Account</a>
+                </div>
+            </li>
+        {% else %}
+            <!-- If user is not logged in -->
+            <li class="menu-item"><a href="{% url 'lab_environment:my-account' %}">My Account</a></li>
+        {% endif %}
+           
+            </div>
+        </li>
+    </ul>
+</div>
+
+</header>
+
+{% block content %}
+<!-- Content of the security issue page goes here -->
+{% endblock %}
+
+
+<footer class="footer">
+    <div class="footer-links">
+        <a href="{% url 'lab_environment:home' %}">Home</a></li>
+      <a href="#">Security Topics</a>
+      <a href="#">Community Discussion</a></li>
+      <a href="{% url 'lab_environment:all_labs' %}">Challenges</a></li>
+    </div>
+    <p class="footer-project-name">Security Education Prototype</p>
+  </footer>
+</footer>
+
+<!-- Include your JavaScript scripts here -->
+
+</body>
+</html>

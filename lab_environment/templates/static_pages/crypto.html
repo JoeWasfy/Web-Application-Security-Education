@@ -1,0 +1,321 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        font-family: inherit;
+        vertical-align: baseline;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #11111;
+        color: #333;
+    }
+    
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: #fff;
+        background: linear-gradient(to bottom, #007BFF, #0055FF);
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+    }
+
+    .header-logo {
+        max-width: 50px;
+        margin-right: 10px;
+    }
+
+    .header-title {
+        font-size: 32px;
+        letter-spacing: 1px;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .menu-item {
+        display: inline-block;
+        margin-right: 25px;
+    }
+
+    .menu-item a,
+.learn-more-button {
+    text-decoration: none;
+}
+
+    .menu-item a {
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .menu-item a:hover {
+        color: #ffc107;
+        transform: translateY(-3px);    }
+
+   
+    
+    .menu-item a.active {
+        color: #ffc107;
+        font-weight: bold;
+    }
+    
+
+    .submenu {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 10px;
+        z-index: 1;
+        text-align: center; /* Center the content horizontally */
+        background-color: #f0f0f0; /* Change the background color to gray */
+
+    }
+    
+    .menu-item:hover .submenu {
+        display: block;
+    }
+    
+    .submenu a {
+        display: block;
+        padding: 5px 0;
+        color: #333;
+        transition: color 0.3s;
+        text-decoration: none;
+    }
+    
+    .submenu a:hover {
+        color: #007BFF;
+        transform: translateY(-3px);
+
+    }
+    
+    .footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+      }
+      
+      .footer-links a {
+        color: #fff;
+        margin: 0 10px;
+        text-decoration: none;
+      }
+      
+      .footer-project-name {
+        font-size: 18px;
+        margin-top: 10px;
+
+}
+
+
+
+
+
+.title-container {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.title {
+    font-size: 40px;
+    letter-spacing: 1px;
+    margin: 0;
+    color: #007BF11;
+    font-weight: bold;
+
+
+}
+
+.security-issue {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 1000px;
+}
+
+.issue-image {
+    text-align: center;
+    padding: 30px;
+}
+
+.issue-image img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.issue-text {
+    padding: 30px;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+
+.learn-more-button {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.learn-more-button:hover {
+    background-color: #0055FF;
+}
+
+.code-block {
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px 0;
+    white-space: pre-wrap;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+</style>
+
+<div class="security-issue">
+
+<div class="title-container">
+    <h1 class="title">Cryptographic Failures</h1>
+</div>
+
+        <div class="issue-image">
+        <img src="/media/5.png" alt="Cryptographic Failures ">
+        <p>Picture 5 : picture from freecodecamp.org </p>
+    </div>
+
+<div class="security-issue">
+    <div class="issue-text">
+        <h3>What's Cryptographic Failure?  </h3>
+        <p>
+            Imagine you have a special digital lockbox where you store things like passwords or credit card details.
+             If this lock isn't strong enough or is broken,  bad actors can get in.
+             That's what happens when we talk about cryptographic failures - it's like someone breaking that lock</p><br>
+     
+        
+<p><strong>Common Mistakes:</strong></p><br>
+
+    <p>1-Sending or storing sensitive info without a protective cover.</p>
+        <p>2-Using old or weak locks (encryption methods).</p>
+            <p>3-Using easy-to-guess or default keys.</p><br>
+ <p><strong>How Can  bad actors Use These Mistakes?</strong></p><br>
+
+    <p>1-Reading your info because it's not protected.</p>
+        <p>2-Breaking weak or old locks.</p>
+            <p>3-Sneaking in without even breaking the lock, because they know or guess the key.</p><br>
+
+<p><strong>Top Tips to Stay Safe:</strong></p><br>
+
+<p>1-Understand Your Data: Know what info is super important and needs extra protection.</p>
+<p>2-Limit Data Storage: If you don't need certain info, don't store it.</p>
+<p>3-Always Use a Protective Cover: Always keep your data under a protective layer.</p>
+<p>4-Stay Updated: Use the latest and best locks.</p>
+<p>5-Keep Your Keys Safe: Think of encryption like a key to a box. Make sure it's a unique and strong key.</p><br>
+
+<p><strong>Detailed Tips:</strong></p><br>
+
+<p>-When sending or storing data, make sure it's not readable by just anyone.</p>
+<p>-Use the newest and strongest methods to lock away your data.</p>
+<p>-Don't use the same key everywhere and update your keys regularly.</p>
+<p>-Make sure you're using a strong and new method to protect data in transit, like TLS.</p>
+<p>-Don't allow your protected data to be stored in caches.</p>
+<p>-If passwords are your keys, make sure they're complex and stored securely.</p>
+<p>-Always double-check your protection measures. Make sure they're working as intended.</p><br>
+
+<p><strong>Remember:</strong> Your data is like treasure. And every treasure needs a good, strong chest and lock.
+    <p> Always ensure your locks are the best and keep your keys safe!</p><br>
+
+    <p><strong>Simple Guide to Cryptographic Failures with Examples </strong></p><br>
+
+ 
+
+<p><strong>What's Cryptographic Failure?</strong></p><br> 
+<p>Think of cryptographic failures like having a weak lock on your treasure chest. </p>
+<p>If someone knows how to pick or break the lock, they can steal the treasure inside.</p><br>
+
+ 
+
+<p><strong>Examples :</strong></p><br>
+
+    <p><strong>1.  Basic Password Protection :</strong></p><br>
+    <p> -  What's the issue?  Using just a basic lock for passwords without any extra protection.</p>
+   <p> -  Real-world example: A company only scrambles passwords but doesn't add any extra protection.
+   bad actors can use common tricks to unscramble these passwords.</p><br>
+
+   <p><strong>2.  Predictable Number Generators :</strong></p><br>
+   <p>  -  What's the issue?  Using a machine that creates predictable codes.</p>
+   <p>  -  Real-world example: Imagine a lottery machine that always picks similar numbers. 
+   If you notice the pattern, you could guess the next number.</p><br>
+
+   <p><strong>3.  Broken Trust Links :</strong></p><br>
+   <p> -  What's the issue?  Not checking the entire chain of safety links.</p>
+   <p> -  Real-world example: It's like having multiple doors to a vault, but only checking a few of them.
+    If one is left unlocked, someone can sneak in.</p><br>
+
+   <p><strong>4.  Not Fully Securing Communications :</strong></p><br>
+   <p> -  What's the issue?  Using a protective shield, but only sometimes.</p>
+   <p> -  Real-world example: You have a secret chat with a friend in a public place,
+    but sometimes you whisper and sometimes you speak normally. Anyone can overhear the normal chat parts.</p><br>
+
+ 
+
+
+
+
+<h4>References:</h4>
+        <ul class="reference-list">
+            <li><a href="https://owasp.org/Top10/A02_2021-Cryptographic_Failures/" target="_blank">https://owasp.org/Top10/A02_2021-Cryptographic_Failures/</a></li>
+            <li><a href="https://crashtest-security.com/owasp-cryptographic-failures/" target="_blank">https://crashtest-security.com/owasp-cryptographic-failures/</a></li>
+            <li><a href="https://www.freecodecamp.org/news/why-does-cryptographic-software-fail-often-d660d3cdfdc5/" target="_blank">https://www.freecodecamp.org/news/why-does-cryptographic-software-fail-often-d660d3cdfdc5/
+            </a></li>
+
+        </ul>
+    </div>
+
+
+  
+
+
+    <a href="{% url 'lab_environment:all_labs' %}" class="learn-more-button">Go to Challenges</a>
+    </div>
+
+</div>
+
+
+
+{% endblock %}

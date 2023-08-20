@@ -1,0 +1,355 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        font-family: inherit;
+        vertical-align: baseline;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #11111;
+        color: #333;
+    }
+    
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: #fff;
+        background: linear-gradient(to bottom, #007BFF, #0055FF);
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+    }
+
+    .header-logo {
+        max-width: 50px;
+        margin-right: 10px;
+    }
+
+    .header-title {
+        font-size: 32px;
+        letter-spacing: 1px;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .menu-item {
+        display: inline-block;
+        margin-right: 25px;
+    }
+
+    .menu-item a,
+.learn-more-button {
+    text-decoration: none;
+}
+
+    .menu-item a {
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .menu-item a:hover {
+        color: #ffc107;
+        transform: translateY(-3px);    }
+
+   
+    
+    .menu-item a.active {
+        color: #ffc107;
+        font-weight: bold;
+    }
+    
+
+    .submenu {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 10px;
+        z-index: 1;
+        text-align: center; /* Center the content horizontally */
+        background-color: #f0f0f0; /* Change the background color to gray */
+
+
+    }
+    
+    .menu-item:hover .submenu {
+        display: block;
+    }
+    
+    .submenu a {
+        display: block;
+        padding: 5px 0;
+        color: #333;
+        transition: color 0.3s;
+        text-decoration: none;
+    }
+    
+    .submenu a:hover {
+        color: #007BFF;
+        transform: translateY(-3px);
+
+    }
+    
+    .footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+      }
+      
+      .footer-links a {
+        color: #fff;
+        margin: 0 10px;
+        text-decoration: none;
+      }
+      
+      .footer-project-name {
+        font-size: 18px;
+        margin-top: 10px;
+
+}
+
+
+
+
+
+.title-container {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.title {
+    font-size: 40px;
+    letter-spacing: 1px;
+    margin: 0;
+    color: #007BF11;
+    font-weight: bold;
+
+
+}
+
+.security-issue {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 1000px;
+}
+
+.issue-image {
+    text-align: center;
+    padding: 30px;
+}
+
+.issue-image img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.issue-text {
+    padding: 30px;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+
+.learn-more-button {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.learn-more-button:hover {
+    background-color: #0055FF;
+}
+
+.code-block {
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px 0;
+    white-space: pre-wrap;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+</style>
+
+<div class="security-issue">
+
+<div class="title-container">
+    <h1 class="title">Server-Side Request Forgery (SSRF) </h1>
+</div>
+
+        <div class="issue-image">
+        <img src="/media/7.png" alt="SSRF">
+        <p>Picture 7 : picture from GeeksforGeeks </p>
+    </div>
+
+<div class="security-issue">
+    <div class="issue-text">
+        <h3>What's SSRF?</h3>
+        <p>
+            Imagine if someone tricked you into shouting out a secret in a crowded place.
+             SSRF is somewhat similar. It's a sneaky technique where hackers trick a website into revealing secret information.
+             They make the website ask for (or "request") data from somewhere it shouldn't.</p><br>
+     
+        
+             <p><strong>Description of SSRF:</strong></p>
+                <p>SSRF happens when a web app tries to get data from another place (like another website) without checking if that place is safe.
+                     Hackers can use this to make the web app request data from secret or private places inside a company's network.</p><br>
+                     <p>For example, imagine a website that lets you view pictures from other websites.
+                         If it doesn't check which websites it's fetching pictures from, 
+                        a hacker might trick it into showing a picture from a private company server.</p><br>
+                        <p>With the rise of complex online services and cloud systems, SSRF risks are growing.</p><br>
+                           <p>Understanding the Impact and Examples of SSRF Attacks</p><br>
+             
+             <p><strong>What happens when SSRF is exploited? </strong></p>
+                <p>Server-Side Request Forgery (SSRF) is like letting a stranger use your phone to make a call;
+                     you don't know who they're calling or what they're saying. If exploited, SSRF can:
+                    </p><br>
+             
+                         
+             <p> 1.Access or manipulate data inside the organization without permission.</p>
+               
+             <p> 2.Possibly execute commands on the server.</p>
+               
+             <p> 3.Make it look like the attack is coming from the company's own servers</p><br>
+            
+             
+             
+             
+             <p><strong>Common Ways Hackers Use SSRF</strong></p><br>
+            
+ 
+             
+
+             
+                <p><strong>1. Tricking the server into talking to itself:</strong></p>
+                    <p>Just like you might accidentally send a message to yourself, hackers can make a server request data from itself. 
+                        They use special addresses like 127.0.0.1 (this is like the server's "home address") or "localhost" to do this.</p><br>
+                        <p><strong>Example:</strong> Let's say there's a store app that checks if a product is available in a certain location. If the app doesn't check where it's getting the information from,
+                             a hacker can tell it to get data from the server's own "admin" page instead of the actual product page.</p><br>
+
+             <p><strong>Why is this a problem?</strong></p>
+                <p>Sometimes, servers have secret admin pages that only certain people should see. 
+                    But, if the server thinks it's asking itself for that page, it might just show it without checking who's asking.</p><br>
+             
+
+            
+                <p><strong>2. Making the server talk to hidden systems:</strong></p>
+                    <p>Sometimes, companies have secret internal systems that only their own servers can talk to. But with SSRF,
+                         a hacker can make the main server act like a middleman and ask these secret systems for data on their behalf.</p><br>
+                        <p><strong>Example:</strong> Using the store app again, instead of asking for product data, 
+                        a hacker might use SSRF to make the server ask another hidden system in the company for sensitive admin data.</p><br>
+
+             <p><strong>Why is this risky?</strong></p>
+                <p>These hidden systems often trust requests from the main server. It's like if you always trust requests from a family member. So, if the main server asks them for data 
+                    (even if it was tricked into asking), these systems might give away sensitive info without checking.</p><br>
+             
+             
+             
+                    <p><strong>How to Protect Against SSRF Attacks?</strong></p>
+
+                    <p>1. Always double-check: Make sure the server always checks where it's getting data from.</p>
+                    <p>2. Limit permissions: Even if a hacker uses SSRF,
+                         if the server has limited permissions, the damage they can do is reduced.</p>
+                    <p>3. Update and patch: Always keep software updated. New updates often have fixes for known vulnerabilities.</p>
+                    <p>4. Educate the team: Ensure everyone knows the risks of SSRF and how to prevent them.</p><br>
+                    
+                    
+                    
+                    <p><strong> Remember:</strong> SSRF is like a wolf in sheep's clothing. 
+                        It makes malicious requests seem trustworthy. Always be on the lookout and ensure your systems are protected.</p><br>
+                    
+                    
+                        <p><strong>How Can We Prevent SSRF?</strong></p><br>
+                    
+                        <p><strong>1. On the Network Side:</strong></p>
+                        <p>- Split up or "segment" the parts of the network that fetch remote resources.
+                            Think of this like having a special room in a library only for fetching rare books.</p>
+                        <p>- Use a strict firewall that only allows necessary connections. This is like
+                             a security guard who only lets specific people into a building.</p>
+                        <p>- Record all allowed and blocked attempts to connect to the network.</p><br>
+                    
+                        <p><strong>2. On the Application Side:</strong></p>
+                        <p> - Clean and double-check all data given by users. Ensure they're not tricking the system
+                             with malicious links or requests.</p>
+                        <p> - Only allow certain types of requests to specific places. It's like only allowing 
+                            certain guests into specific rooms of your house.</p>
+                        <p> - Avoid showing raw error messages to users. This can give hackers clues.</p>
+                        <p> - Turn off automatic URL redirects.</p>
+                        <p> - Be consistent with URLs to prevent tricks like DNS rebinding.</p>
+                        <p> - Don't just block known bad requests. This is like trying to block known </p>
+                            thieves but letting unknown ones in. It's better to only allow known good requests.</p><br>
+                    
+                        <p><strong>3. Extra Safety Tips:</strong></p>
+                        <p> - Keep different services separate. For example, don't keep your email and your important documents
+                             on the same computer.</p>
+                        <p> - If possible, use encrypted connections (like VPNs) on separate systems.</p><br>
+                    
+                    
+                    
+                        <p><strong> Remember:</strong> Always be cautious about where your web applications are fetching data 
+                            from and ensure they aren't being tricked into accessing something they shouldn't!</p><br>
+                    
+    
+                    
+
+  
+
+
+                               
+          <h4>References:</h4>
+
+          <ul class="reference-list">
+              <li><a href="https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/" target="_blank">https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/</a></li>
+              <li><a href="https://portswigger.net/web-security/ssrf" target="_blank">https://portswigger.net/web-security/ssrf</a></li>
+              <li><a href="https://www.geeksforgeeks.org/server-side-request-forgery-ssrf-in-depth/" target="_blank">https://www.geeksforgeeks.org/server-side-request-forgery-ssrf-in-depth/</a></li>
+              </a></li>
+  
+          </ul>
+      </div>
+
+    <a href="{% url 'lab_environment:all_labs' %}" class="learn-more-button">Go to Challenges</a>
+    </div>
+
+</div>
+
+
+
+{% endblock %}

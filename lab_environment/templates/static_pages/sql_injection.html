@@ -1,0 +1,455 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        font-family: inherit;
+        vertical-align: baseline;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #11111;
+        color: #333;
+    }
+    
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: #fff;
+        background: linear-gradient(to bottom, #007BFF, #0055FF);
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+    }
+
+    .header-logo {
+        max-width: 50px;
+        margin-right: 10px;
+    }
+
+    .header-title {
+        font-size: 32px;
+        letter-spacing: 1px;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .menu-item {
+        display: inline-block;
+        margin-right: 25px;
+    }
+
+    .menu-item a,
+.learn-more-button {
+    text-decoration: none;
+}
+
+    .menu-item a {
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .menu-item a:hover {
+        color: #ffc107;
+        transform: translateY(-3px);    }
+
+   
+    
+    .menu-item a.active {
+        color: #ffc107;
+        font-weight: bold;
+    }
+    
+
+    .submenu {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 10px;
+        z-index: 1;
+        text-align: center; /* Center the content horizontally */
+        background-color: #f0f0f0; /* Change the background color to gray */
+
+    }
+    
+    .menu-item:hover .submenu {
+        display: block;
+    }
+    
+    .submenu a {
+        display: block;
+        padding: 5px 0;
+        color: #333;
+        transition: color 0.3s;
+        text-decoration: none;
+    }
+    
+    .submenu a:hover {
+        color: #007BFF;
+        transform: translateY(-3px);
+
+    }
+    
+    .footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+      }
+      
+      .footer-links a {
+        color: #fff;
+        margin: 0 10px;
+        text-decoration: none;
+      }
+      
+      .footer-project-name {
+        font-size: 18px;
+        margin-top: 10px;
+
+}
+
+
+
+
+
+.title-container {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.title {
+    font-size: 40px;
+    letter-spacing: 1px;
+    margin: 0;
+    color: #007BF11;
+    font-weight: bold;
+
+
+}
+
+.security-issue {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 1000px;
+}
+
+.issue-image {
+    text-align: center;
+    padding: 30px;
+}
+
+.issue-image img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.issue-text {
+    padding: 30px;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+
+.learn-more-button {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.learn-more-button:hover {
+    background-color: #0055FF;
+}
+
+.code-block {
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px 0;
+    white-space: pre-wrap;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+</style>
+
+<div class="security-issue">
+
+<div class="title-container">
+    <h1 class="title">SQL Injection (SQLi)</h1>
+</div>
+
+        <div class="issue-image">
+        <img src="/media/sql 1.jpg" alt="SQL Injection">
+        <p>Picture 1 - Picture from sqlshack.com/</p>
+    </div>
+
+<div class="security-issue">
+    <div class="issue-text">
+        <h3>SQL Injection Explained (SQLi)</h3>
+        <p>In this part, we're going to talk about what SQL injection is, show some examples, teach you how to spot and use them, and lastly, how to keep them from happening.</p>
+     
+        <h4>What is SQL injection?</h4>
+        <p>SQL injection is like a sneaky trick that bad people use to mess with a website's database. It's like they find a backdoor to see or even change things in the database they shouldn't. Sometimes, they can even cause bigger problems for the whole website or its server.</p>
+       
+       
+        <h4>Why is SQL injection a big deal?</h4>
+        <p>If someone pulls off a SQL injection, they can see private stuff like passwords or credit card numbers. This has caused big problems for many companies, making them look bad and costing them money. Sometimes, the bad guys can even set up a secret way to keep getting into the system without anyone noticing.</p>       
+        
+        <h3>Different Kinds of SQL injection Tricks   </h3>
+<h4> 1. In-band SQLi:</h4>
+    <p>This is when bad people use the same way to both mess with the website and get information out of it.</p>
+    
+  <p>  Question: What does "in-band" mean in SQL injection?</p>
+    
+   <h4> 2. Common In-band SQL Tricks:</h4>
+   <p> a. Error-based SQL injection: Here, the bad person does something to make the website's database show an error.
+     This error can tell them about the database or where it's located.</p>
+   <p> b. Union-based SQL injection: The bad person uses a special command called "UNION" to mix the results of two or more commands
+     and get a single answer from the website.</p>
+    
+   <p> Question: What are the two main types of in-band SQL injections?</p>
+    
+   <h4> 3. Blind SQLi:</h4>
+    <p>The bad person can't see the results directly on the website, but they still find ways to know if they're on the right track.</p>
+    
+    <p>Question: Why is it called "Blind" SQL injection?</p>
+    
+    <h4>4. Specific Blind SQL Tricks:</h4>
+    
+   <p> a. Boolean-based SQL Injection: The bad person asks the website a yes-or-no question using an SQL command. 
+    The website's answer helps them understand if their guess was right or wrong.</p>
+    <p>b. Time-based SQL Injection: Here, the bad person makes the website's database wait for some time before answering. 
+        How long it takes the website to respond tells the bad person if they're right.</p>
+    
+  <p>  Question: How does the Time-based SQL injection give clues to the attacker?</p>
+    
+   <h4> 5. Out-of-bound SQL Injection:</h4>
+    
+    <p>This one's not common. It happens when the database has some extra features turned on, usually mistakenly.
+    
+    <h4>Simple SQL Injection: A Sneaky Trick</h4>
+    
+   <p> Imagine you're trying to get into a club, and there's a bouncer checking names on a list. The list is like the database of a website.
+    
+   <h4> Script Explanation:</h4>
+    
+  <p>  There's a script running on a website that checks if your username and password match any in its list (or database).
+    If it finds a match, you get in.</p>
+    
+    <h4>The Trick:</h4>
+    <p>Now, a sneaky person doesn't know the right name or password, but they know how the list is checked. 
+     They use a trick, saying their name is "ANYONE" and their password is "ANYTHING or TRUE". 
+     Since "TRUE" is always true, the bouncer (or script) thinks they are on the list and lets them in!</p>
+    
+    <h4>How It Works:</h4>
+    <p>In the code, the sneaky person puts in a special command OR 1=1 (which is always true).
+     So, even if the username and password are wrong, this part is true, and they get access. 
+     It's like saying to the bouncer, "Let me in if my name is on the list OR if the sky is blue."
+     Since the sky is always blue, they get in!</p>
+    
+   <h4> Extra Tricks:</h4>
+   <p> They can also use other commands to mess with the list check even more, like using -- or /* to ignore parts of the check.
+    
+    <h4>Union-Based SQL Injection: Mixing Results</h4>
+    
+    <p>Think of this like blending two different smoothies together. An attacker can use a command called "UNION" to mix the results of two different questions they ask the database.</p>
+    
+   <h4> How It Works:</h4>
+   <p> Let's say the website shows you the list of all the books you borrowed from a library. A sneaky person could use the UNION trick to also see what another person borrowed by mixing the results together. This way, they get information they shouldn't have access to!
+    </p>       
+<P></p>
+   <h4> Seeing Hidden Books on a Website</h4>
+
+   <p> Imagine you're browsing an online bookstore and you click on the "Books" section. Your computer asks the website for a list of books
+     by visiting this link:</p>
+    
+   <p> https://bookstore-example.com/items?section=Books</p>
+   <p> The website then checks its list (or database) to see which books are available and shows them to you.
+     It does this using a special command:</P>
+    
+    <p>Get everything from the items list where the section is "Books" and the book is available.</p>
+    
+    <p>Now, some books might be coming soon or not yet available, so the website doesn't show them to you. 
+    But, what if someone sneaky knew how to ask the website to show everything, including the not-yet-available books?</p>
+    
+    <h3>The Sneaky Trick:</h3>
+    
+    <h4>They visit a slightly changed link:</h4>
+    
+   <p> https://bookstore-example.com/items?section=Books'--</p>
+    
+   <p> This tricks the website into forgetting to check if the book is available. So, it shows all the books,
+     even the ones not yet available.</p>
+    
+    <h4>An Even Sneakier Trick:</h4>
+    
+   <h4> They can also use this link:</h4>
+    
+   <p> https://bookstore-example.com/items?section=Books'+OR+1=1– </p>
+    
+   <p> This asks the website to show all items, whether they are books or not, because it's like saying 
+    "Show me everything where the section is books OR where 1 equals 1." And since 1 always equals 1, the website shows everything!</p>
+    
+    <h4>A Word of Caution:</h4>
+   <p> Using these sneaky tricks can be risky. For example, if someone tells the website to remove everything where 1 equals 1,
+     they might accidentally delete all the books on the list!</p>
+    
+   <p> Question: What happens when the sneaky trick with OR 1=1 is used on the bookstore website?</p>
+    
+    
+    
+   <h3> SQL Injection Prevention Cheat Sheet</h3>
+    
+    <p>SQL injection is like someone sneaking into a club by tricking the bouncer. 
+        To keep our club (database) safe, here's a list of best practices:</p>
+    
+    <h4>Primary Defenses:</h4>
+    
+   <p> Option 1: Use of Prepared Statements (with Parameterized Queries)</p>
+    <p>Instead of mixing our SQL code and user inputs, we keep them separate.
+         It's like asking for a name and ID separately at the club entrance.</p>
+
+    <div class="code-block">
+        <h4>Example:</h4>
+        <code>
+        # Python with SQLite
+        cursor.execute("INSERT INTO students (name, age) VALUES (?, ?)", (name, age))
+            </code>
+        </div>
+    
+    
+<h4>Option 2: Use of Properly Constructed Stored Procedures</h4>
+
+<p>This means we have pre-written SQL commands in our database. 
+We just pass the user inputs as parameters. Think of it as VIP-only doors at the club.</p>
+
+
+
+<div class="code-block">
+    <h4>Example:</h4>
+    <code>
+        CREATE PROCEDURE AddStudent(@name nvarchar(100), @age int)
+        AS
+        INSERT INTO students(name, age) VALUES(@name, @age
+    </code>
+</div>
+
+
+
+
+
+<h4>Option 3: Allow-list Input Validation</h4>
+<p>Only allow known good data. Like a guest list at a party. If the data (or guest) isn't recognized, they're not allowed in.</p>
+
+
+
+<div class="code-block">
+    <h4>Example:</h4>
+    <code>
+        if username in allowed_users:
+        # Proceed
+    </code>
+</div>
+
+
+
+<h4>Option 4: Escaping All User Supplied Input</h4>
+<p>This means turning potentially harmful input into harmless text. It's like checking someone's bag at the entrance.</p>
+
+
+
+<div class="code-block">
+    <h4>Example (in PHP):</h4>
+    <code>
+        $escaped_string = mysqli_real_escape_string($connection, $user_input);
+    </code>
+</div>
+
+
+
+<h3>Additional Defenses:</h3>
+
+<h4>Enforcing Least Privilege</h4>
+
+<p>Don't give more access than needed. Like giving a backstage pass only to the band, not every guest.</p>
+
+<h4>Example:</h4>
+
+<p>If a user only needs to read data, don't give them write or delete permissions.</p>
+
+<p>Also: Performing Allow-list Input Validation as a Secondary Defense
+Double-checking is good. It's like checking the guest list and then also checking IDs.</p>
+
+<div class="code-block">
+
+   <h4>Example:</h4>
+        <code>
+        if input in allowed_inputs and validate_input(input):
+        # Proceed</code>
+    </div>
+
+
+
+<p>Remember, the more layers of defense we have, the harder it is for attackers to sneak in. Always keep your defenses up-to-date!</p>
+
+
+
+<h4>References:</h4>
+        <ul class="reference-list">
+            <li><a href="https://portswigger.net/web-security/sql-injection" target="_blank">https://portswigger.net/web-security/sql-injection</a></li>
+            <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html" target="_blank">https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html</a></li>
+            <li><a href="https://scholarworks.sjsu.edu/cgi/viewcontent.cgi?referer=&httpsredir=1&article=1081&context=etd_projects" target="_blank">https://scholarworks.sjsu.edu/cgi/viewcontent.cgi?referer=&httpsredir=1&article=1081&context=etd_projects</a></li>
+            <li><a href="https://www.acunetix.com/websitesecurity/sql-injection/" target="_blank">https://www.acunetix.com/websitesecurity/sql-injection/</a></li>
+            <li><a href="https://www.sqlshack.com/sql-injection-detection-and-prevention/" target="_blank">https://www.sqlshack.com/sql-injection-detection-and-prevention/</a></li>
+
+        </ul>
+    </div>
+
+
+  
+
+
+    <a href="{% url 'lab_environment:all_labs' %}" class="learn-more-button">Go to Challenges</a>
+    </div>
+
+</div>
+
+
+
+{% endblock %}

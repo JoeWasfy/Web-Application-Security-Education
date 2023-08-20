@@ -1,0 +1,262 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        font-family: inherit;
+        vertical-align: baseline;
+        box-sizing: border-box;
+    }
+
+
+  
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+    }
+    
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: #fff;
+        background: linear-gradient(to bottom, #007BFF, #0055FF);
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+    }
+
+    .header-logo {
+        max-width: 50px;
+        margin-right: 10px;
+    }
+
+    .header-title {
+        font-size: 32px;
+        letter-spacing: 1px;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .menu-item {
+        display: inline-block;
+        margin-right: 25px;
+    }
+
+    .menu-item a,
+.learn-more-button {
+    text-decoration: none;
+}
+
+    .menu-item a {
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .menu-item a:hover {
+        color: #ffc107;
+        transform: translateY(-3px);    }
+
+   
+    
+    .menu-item a.active {
+        color: #ffc107;
+        font-weight: bold;
+    }
+    
+
+    .login-button {
+        background-color: #fff;
+        color: #007BFF;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .login-button:hover {
+        background-color: #007BFF;
+        color: #fff;
+    }
+
+    .submenu {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 10px;
+        z-index: 1;
+        text-align: center; /* Center the content horizontally */
+        background-color: #f0f0f0; /* Change the background color to gray */
+
+    }
+    
+    .menu-item:hover .submenu {
+        display: block;
+    }
+    
+    .submenu a {
+        display: block;
+        padding: 5px 0;
+        color: #333;
+        transition: color 0.3s;
+        text-decoration: none;
+    }
+    
+    .submenu a:hover {
+        color: #007BFF;
+        transform: translateY(-3px);
+
+    }
+    
+    .my-account {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      margin: 20px auto;
+      max-width: 600px;
+  }
+
+  .my-account h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+  }
+
+  .user-details {
+      text-align: center;
+      margin-bottom: 20px;
+  }
+
+  .user-details p {
+      margin: 5px 0;
+      color: #555;
+  }
+
+  /* Styling the log out button */
+  .logout-form {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+  }
+
+  .logout-form button[type="submit"] {
+      background-color: #fff;
+      color: #007BFF;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+  }
+
+  .logout-form button[type="submit"]:hover {
+      background-color: #007BFF;
+      color: #fff;
+  }
+
+  /* Styling the add article section */
+  .add-article {
+      text-align: center;
+      padding: 20px;
+      background-color: #f5f5f5;
+      border-radius: 10px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+  }
+
+  .add-article h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #333;
+  }
+
+  .add-article button[type="submit"] {
+      background-color: #007BFF;
+      color: #fff;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+  }
+
+  .add-article button[type="submit"]:hover {
+      background-color: #0055FF;
+  }
+
+
+
+    /* Push the footer to the bottom of the page */
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+      
+      .footer-links a {
+        color: #fff;
+        margin: 0 10px;
+        text-decoration: none;
+      }
+      
+      .footer-project-name {
+        font-size: 18px;
+        margin-top: 10px;
+
+}
+
+
+</style>
+<div class="my-account">
+    <h2>My Account</h2>
+    <div class="user-details">
+        <p>Username: {{ request.user.username }}</p>
+        <p>User Type: {{ request.user.user_type }}</p>
+        <p>Points: {{ request.user.points }}</p>
+  <!-- Log Out button -->
+  <form action="{% url 'lab_environment:logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Log Out</button>
+</form>
+
+</div>
+    <div class="add-article">
+        <h3>Add Scientific Article</h3>
+        <form method="post">
+            {% csrf_token %}
+            <!-- Add form fields for adding an article -->
+            <!-- ... -->
+            <button type="submit">Add Article</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

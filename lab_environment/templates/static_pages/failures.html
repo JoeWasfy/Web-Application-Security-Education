@@ -1,0 +1,297 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        font-family: inherit;
+        vertical-align: baseline;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #11111;
+        color: #333;
+    }
+    
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: #fff;
+        background: linear-gradient(to bottom, #007BFF, #0055FF);
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+    }
+
+    .header-logo {
+        max-width: 50px;
+        margin-right: 10px;
+    }
+
+    .header-title {
+        font-size: 32px;
+        letter-spacing: 1px;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .menu-item {
+        display: inline-block;
+        margin-right: 25px;
+    }
+
+    .menu-item a,
+.learn-more-button {
+    text-decoration: none;
+}
+
+    .menu-item a {
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .menu-item a:hover {
+        color: #ffc107;
+        transform: translateY(-3px);    }
+
+   
+    
+    .menu-item a.active {
+        color: #ffc107;
+        font-weight: bold;
+    }
+    
+
+    .submenu {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 10px;
+        z-index: 1;
+        text-align: center; /* Center the content horizontally */
+        background-color: #f0f0f0; /* Change the background color to gray */
+
+    }
+    
+    .menu-item:hover .submenu {
+        display: block;
+    }
+    
+    .submenu a {
+        display: block;
+        padding: 5px 0;
+        color: #333;
+        transition: color 0.3s;
+        text-decoration: none;
+        margin: 5px 0; /* Add some margin between submenu items */
+    }
+    
+    .submenu a:hover {
+        color: #007BFF;
+        transform: translateY(-3px);
+    }
+    
+    
+    .footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+      }
+      
+      .footer-links a {
+        color: #fff;
+        margin: 0 10px;
+        text-decoration: none;
+      }
+      
+      .footer-project-name {
+        font-size: 18px;
+        margin-top: 10px;
+
+}
+
+
+
+
+
+.title-container {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.title {
+    font-size: 40px;
+    letter-spacing: 1px;
+    margin: 0;
+    color: #007BF11;
+    font-weight: bold;
+
+
+}
+
+.security-issue {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 1000px;
+}
+
+.issue-image {
+    text-align: center;
+    padding: 30px;
+}
+
+.issue-image img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.issue-text {
+    padding: 30px;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+
+.learn-more-button {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.learn-more-button:hover {
+    background-color: #0055FF;
+}
+
+.code-block {
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px 0;
+    white-space: pre-wrap;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+</style>
+
+<div class="security-issue">
+
+<div class="title-container">
+    <h1 class="title">Software and Data Integrity Failures </h1>
+</div>
+
+        <div class="issue-image">
+        <img src="/media/9.png" alt="ds">
+        <p>Picture 9: picture from f5.com  </p>
+    </div>
+
+<div class="security-issue">
+    <div class="issue-text">
+        <h3>What is Information Disclosure?</h3>
+        <p>
+            Imagine you're playing a game, and you accidentally find a cheat code that reveals secrets about the game.
+             Similarly, in the digital world,
+             sometimes websites accidentally reveal secrets. This is called "information disclosure."</p><br>
+     
+        
+             <p><strong>Why is this Bad?</strong></p><br>
+
+             <p>Imagine if your diary got into the wrong hands, and someone read all your secrets.
+              They could misuse that information, right? Similarly, when websites leak information,</p><br>
+               bad people can misuse it to harm the website or its users.
+             
+             <p><strong>Common Ways Websites Leak Information:</strong></p><br>
+             
+             <p> 1-Verbose Errors: Like a game giving away too many hints.</p>
+             <p> 2-Code Comments: Like finding hints in the rulebook of a game.</p>
+             <p> 3-Hidden Hints: Hidden clues in a game that can be found if you look carefully.</p>
+             <p> 4-Old & Backup Files: Like an older version of a game that still has some cheats.</p>
+             <p> 5-Telling Headers: Like a game's settings menu revealing secrets.</p>
+             <p> 6-Timing Attacks: If a game takes longer to respond to some actions, it might be giving away clues.</p>
+             <p> 7-Unprotected Secrets: Like a secret level in a game that anyone can access.</p><br>
+             
+             <p><strong>How Can We Protect Websites from Leaking Info?</strong></p><br>
+             
+             <p> 1-Be Less Verbose: Don't give away too many hints.</p>
+             <p> 2-Clean the Code: Remove all cheat codes and hints from the game.</p>
+             <p> 3-Protect Secrets: Make sure secret levels are well-hidden.</p>
+             <p> 4-Update & Patch: Always use the latest version of the game, which has fewer cheats.</p><br>
+             
+             <p><strong>Remember:</strong></p><br>
+             <p>Always protect your secrets, both in games and in real life. If you find a cheat or a secret, 
+             report it responsibly and help make the game (or website) safer for everyone!</p><br>
+             
+             
+             <p><strong>📖 Imagine If...</strong></p><br>
+             
+             <p><strong>1. Toy Update without Checking:</strong><p> Imagine you have a toy that can receive new songs or games from the internet.
+              But, instead of checking if the new songs or games are from the toy company, it just accepts anything.
+               A naughty kid could send a song with bad words, and your toy would play it. 
+               This is similar to devices updating without verifying the source .</p><br>
+             
+               <p><strong> 2. Baking Contest with a Twist:</strong><p> You're in a school baking contest where everyone gets a secret recipe.
+              A sneaky student finds a way to change the recipes without anyone noticing. On the day of the contest,
+               many students end up with failed dishes because they followed the tampered recipes.
+                This is like the SolarWinds attack where an essential recipe (software update) was altered maliciously.</p><br>
+             
+                <p><strong>3. Trading Cards with Hidden Messages:</strong><p> You and your friends trade cards that have secret codes on them.
+              When you get a card, you read the code and know a secret message. But, a sneaky friend creates a card with a code that,
+               when read, makes you give all your cards to him. This is like Insecure Deserialization - using a coded message to trick the system.</p><br>
+             
+             
+
+
+                               
+          <h4>References:</h4>
+
+          <ul class="reference-list">
+              <li><a href="https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/" target="_blank">https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/</a></li>
+              <li><a href="https://my.f5.com/manage/s/article/K50295355" target="_blank">https://my.f5.com/manage/s/article/K50295355</a></li>
+              </a></li>
+  
+          </ul>
+      </div>
+
+    <a href="{% url 'lab_environment:all_labs' %}" class="learn-more-button">Go to Challenges</a>
+    </div>
+
+</div>
+
+
+
+{% endblock %}
