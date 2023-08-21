@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 20, 2023 at 03:19 PM
+-- Generation Time: Aug 21, 2023 at 12:10 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -260,7 +260,14 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (20, '2023-08-20 09:27:08.769083', '8', 'Lukas', 2, '[{\"changed\": {\"fields\": [\"Password\"]}}]', 16, 3),
 (21, '2023-08-20 09:27:21.423942', '6', 'testuser', 2, '[{\"changed\": {\"fields\": [\"Password\"]}}]', 16, 3),
 (22, '2023-08-20 09:27:31.160671', '6', 'testuser', 2, '[]', 16, 3),
-(23, '2023-08-20 09:28:00.199126', '4', 'andrew', 2, '[]', 16, 3);
+(23, '2023-08-20 09:28:00.199126', '4', 'andrew', 2, '[]', 16, 3),
+(24, '2023-08-21 09:30:14.625499', '9', 'pascal', 2, '[{\"changed\": {\"fields\": [\"Groups\", \"User type\", \"Points\"]}}]', 16, 9),
+(25, '2023-08-21 09:31:05.592595', '10', 'AnnikaAnnika', 1, '[{\"added\": {}}]', 16, 9),
+(26, '2023-08-21 09:32:07.869843', '11', 'Muller', 1, '[{\"added\": {}}]', 16, 9),
+(27, '2023-08-21 09:34:03.994971', '10', 'Annika', 2, '[{\"changed\": {\"fields\": [\"Username\"]}}]', 16, 3),
+(28, '2023-08-21 09:34:42.412035', '1', 'JOE', 2, '[{\"changed\": {\"fields\": [\"Password\"]}}]', 16, 3),
+(29, '2023-08-21 09:37:54.356150', '3', 'wasim', 2, '[]', 16, 3),
+(30, '2023-08-21 09:38:35.600463', '12', 'Isabela', 1, '[{\"added\": {}}]', 16, 3);
 
 -- --------------------------------------------------------
 
@@ -356,7 +363,7 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('yaa36mrfxm8d4wmnlgm5zexlfpltezl6', '.eJxVjMsOwiAQRf-FtSFQYWbq0n2_gQwD2KqBpI-V8d-1SRe6veec-1KBt3UM25LnMCV1UaROv1tkeeS6g3TnemtaWl3nKepd0Qdd9NBSfl4P9-9g5GX81nKmDntvgcATC_mCtqdIIJkxoQMUcFaSMTYXMF0HBj1DHzEVZ8ip9we_YjbX:1qXejm:tcXix6RqoPOU9jyY2EVb6dPfqWHgoH5Sl8XNDXgT1GY', '2023-09-03 09:28:46.477955');
+('r9dwfehbgb6534jycjwg7notins72c43', '.eJxVjMsOwiAQRf-FtSEzwFBw6d5vIMMjUjWQlHZl_Hdt0oVu7znnvkTgba1hG2UJcxZn4cXpd4ucHqXtIN-53bpMva3LHOWuyIMOee25PC-H-3dQedRvnbRFbx1hZIVRE6BDsEjkI3irQRnNxmRPTFCMgWkiJKcVKwLnPIv3B5BkNVY:1qY1oA:yKOoPwM1LXWIVvgjscr7crxPK6Uq8C-mDG97eZ2iAD0', '2023-09-04 10:06:50.747986');
 
 -- --------------------------------------------------------
 
@@ -439,13 +446,17 @@ CREATE TABLE `lab_environment_customuser` (
 --
 
 INSERT INTO `lab_environment_customuser` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`, `user_type`, `points`) VALUES
-(1, 'joe@123W', '2023-08-15 14:14:28.000000', 1, 'JOE', 'joe', 'gerges', 'gerges@queensoft.net', 1, 1, '2023-08-15 11:24:22.000000', 'staff', 0),
+(1, 'pbkdf2_sha256$600000$jnODKYTx2mL3CbeDWcjIOf$L5kVSREHs84S/IkTEXzyzwFzaXYgZJ9mY7af6iidmlg=', '2023-08-15 14:14:28.000000', 1, 'JOE', 'joe', 'gerges', 'gerges@queensoft.net', 1, 1, '2023-08-15 11:24:22.000000', 'staff', 0),
 (2, 'wasim', '2023-08-15 14:02:43.000000', 0, 'Michael12', 'Michael', 'Bill', 'MichaelBill@example.com', 0, 1, '2023-08-15 13:59:19.000000', 'student', 50),
-(3, 'pbkdf2_sha256$600000$lCjk00nsygqlW1m6xtDff8$1HI6884hnx6kBE74eOI2YLkHiJr149KtxTgRWljHcfY=', '2023-08-20 09:26:38.679450', 1, 'wasim', '', '', 'wasim@queensoft.net', 1, 1, '2023-08-15 17:21:44.000000', 'staff', 30),
+(3, 'pbkdf2_sha256$600000$lCjk00nsygqlW1m6xtDff8$1HI6884hnx6kBE74eOI2YLkHiJr149KtxTgRWljHcfY=', '2023-08-21 09:33:49.000000', 1, 'wasim', '', '', 'wasim@queensoft.net', 1, 1, '2023-08-15 17:21:44.000000', 'staff', 30),
 (4, 'pbkdf2_sha256$600000$lCjk00nsygqlW1m6xtDff8$1HI6884hnx6kBE74eOI2YLkHiJr149KtxTgRWljHcfY=', '2023-08-17 08:47:50.000000', 0, 'andrew', 'Andrew', 'Gerges', 'wasim.wasfy@gmail.com', 0, 1, '2023-08-16 06:48:15.000000', 'student', 25),
 (5, 'wasim', '2023-08-15 14:02:43.000000', 1, 'Carin', '', '', '', 1, 1, '2023-08-16 08:58:35.000000', 'staff', 0),
 (6, 'pbkdf2_sha256$600000$lCjk00nsygqlW1m6xtDff8$1HI6884hnx6kBE74eOI2YLkHiJr149KtxTgRWljHcfY=', NULL, 0, 'testuser', '', '', '', 0, 1, '2023-08-16 09:09:46.000000', 'student', 0),
-(8, 'pbkdf2_sha256$600000$lCjk00nsygqlW1m6xtDff8$1HI6884hnx6kBE74eOI2YLkHiJr149KtxTgRWljHcfY=', '2023-08-20 09:28:46.469394', 0, 'Lukas', 'Lukas', 'Müller', 'example@webapp.com', 1, 1, '2023-08-20 09:24:14.000000', 'staff', 0);
+(8, 'pbkdf2_sha256$600000$lCjk00nsygqlW1m6xtDff8$1HI6884hnx6kBE74eOI2YLkHiJr149KtxTgRWljHcfY=', '2023-08-20 09:28:46.469394', 0, 'Lukas', 'Lukas', 'Müller', 'example@webapp.com', 1, 1, '2023-08-20 09:24:14.000000', 'staff', 0),
+(9, 'pbkdf2_sha256$600000$jnODKYTx2mL3CbeDWcjIOf$L5kVSREHs84S/IkTEXzyzwFzaXYgZJ9mY7af6iidmlg=', '2023-08-21 10:06:50.741516', 1, 'pascal', '', '', 'pascal.schoettle@mci.edu', 1, 1, '2023-08-21 09:21:50.000000', 'staff', 70),
+(10, 'pbkdf2_sha256$600000$lCjk00nsygqlW1m6xtDff8$1HI6884hnx6kBE74eOI2YLkHiJr149KtxTgRWljHcfY=', '2023-08-21 09:30:21.000000', 0, 'Annika', '', '', 'annika@example.com', 1, 1, '2023-08-21 09:30:17.000000', 'staff', 50),
+(11, 'pbkdf2_sha256$600000$lCjk00nsygqlW1m6xtDff8$1HI6884hnx6kBE74eOI2YLkHiJr149KtxTgRWljHcfY=', '2023-08-21 09:33:13.614288', 0, 'Muller', '', '', 'muller@example.com', 0, 1, '2023-08-21 09:31:08.000000', 'student', 30),
+(12, 'pbkdf2_sha256$600000$lCjk00nsygqlW1m6xtDff8$1HI6884hnx6kBE74eOI2YLkHiJr149KtxTgRWljHcfY=', '2023-08-21 09:38:00.000000', 0, 'Isabela', '', '', 'Isabela@example.com', 0, 1, '2023-08-21 09:37:56.000000', 'student', 20);
 
 -- --------------------------------------------------------
 
@@ -467,7 +478,9 @@ INSERT INTO `lab_environment_customuser_groups` (`id`, `customuser_id`, `group_i
 (1, 1, 1),
 (2, 3, 1),
 (3, 5, 1),
-(4, 8, 1);
+(4, 8, 1),
+(5, 9, 1),
+(6, 10, 1);
 
 -- --------------------------------------------------------
 
@@ -762,7 +775,7 @@ ALTER TABLE `auth_permission`
 -- AUTO_INCREMENT for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `django_content_type`
@@ -798,13 +811,13 @@ ALTER TABLE `lab_environment_challenge`
 -- AUTO_INCREMENT for table `lab_environment_customuser`
 --
 ALTER TABLE `lab_environment_customuser`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `lab_environment_customuser_groups`
 --
 ALTER TABLE `lab_environment_customuser_groups`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `lab_environment_customuser_user_permissions`
